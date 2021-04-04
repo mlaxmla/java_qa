@@ -1,2 +1,8 @@
+pl/stqa/mla/sandbox/Rectangle.java
+ pl.stqa.mla.sandbox.Rectangle
+pl/stqa/mla/sandbox/Square.java
+ pl.stqa.mla.sandbox.Square
+pl/stqa/mla/sandbox/Point.java
+ pl.stqa.mla.sandbox.Point
 pl/stqa/mla/sandbox/MyFirstProgram.java
  pl.stqa.mla.sandbox.MyFirstProgram
