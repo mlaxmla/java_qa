@@ -17,8 +17,8 @@ public class ApplicationManager {
   public void init() {
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    gotoHomePage();
     groupHelper = new GroupHelper(wd);
+    gotoHomePage();
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
     contactHelper = new ContactHelper(wd);
@@ -26,13 +26,7 @@ public class ApplicationManager {
   }
 
 
-  public void gotoHomePage() {
-    wd.get("http://localhost/addressbook/");
-  }
-
-  public void returnToHomePage() {
-    wd.findElement(By.linkText("home page")).click();
-  }
+//
 
   public void stop() {
     wd.quit();
@@ -42,6 +36,13 @@ public class ApplicationManager {
     return groupHelper;
   }
 
+  public void gotoHomePage() {
+    wd.get("http://localhost/addressbook/");
+  }
+
+  public void returnToHomePage() {
+    wd.findElement(By.linkText("home page")).click();
+  }
   public NavigationHelper getNavigationHelper() {
     return navigationHelper;
   }
