@@ -6,17 +6,21 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import pl.stqa.mla.addressbook.model.ContactData;
-import pl.stqa.mla.addressbook.model.GroupData;
 
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
-  private WebDriver wd;
+  WebDriver wd;
+
+  private NavigationHelper navigationHelper;
+  private GroupHelper groupHelper;
 
   public void init() {
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     gotoHomePage();
+    groupHelper = new GroupHelper(wd);
+    navigationHelper = new NavigationHelper(wd);
     login("admin", "secret");
   }
 
@@ -34,10 +38,6 @@ public class ApplicationManager {
 
   public void returnToHomePage() {
     wd.findElement(By.linkText("home page")).click();
-  }
-
-  public void gotoGroupPage() {
-    wd.findElement(By.linkText("groups")).click();
   }
 
   public void submitContactCreation() {
@@ -97,35 +97,11 @@ public class ApplicationManager {
     }
   }
 
-  public void deleteSelectedGroups() {
-    wd.findElement(By.name("delete")).click();
+  public GroupHelper getGroupHelper() {
+    return groupHelper;
   }
 
-  public void selectGroup() {
-    wd.findElement(By.name("selected[]")).click();
-  }
-
-  public void returnToGroupPage() {
-    wd.findElement(By.linkText("group page")).click();
-  }
-
-  public void submitGroupCreation() {
-    wd.findElement(By.name("submit")).click();
-  }
-
-  public void fillGroupForm(GroupData groupData) {
-    wd.findElement(By.name("group_name")).click();
-    wd.findElement(By.name("group_name")).clear();
-    wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
-    wd.findElement(By.name("group_header")).click();
-    wd.findElement(By.name("group_header")).clear();
-    wd.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
-    wd.findElement(By.name("group_footer")).click();
-    wd.findElement(By.name("group_footer")).clear();
-    wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
-  }
-
-  public void initGroupCreation() {
-    wd.findElement(By.name("new")).click();
+  public NavigationHelper getNavigationHelper() {
+    return navigationHelper;
   }
 }
