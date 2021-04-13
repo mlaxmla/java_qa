@@ -2,6 +2,8 @@ package pl.stqa.mla.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import pl.stqa.mla.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase {
@@ -14,7 +16,11 @@ public class ContactHelper extends HelperBase {
     click(By.name("submit"));
   }
 
-  public void fillContactForm(ContactData contactData) {
+  public void submitContactModification() {
+    click(By.name("update"));
+  }
+
+  public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstName_td());
     type(By.name("middlename"), contactData.getMiddleName_td());
     type(By.name("lastname"), contactData.getLastName_td());
@@ -27,10 +33,20 @@ public class ContactHelper extends HelperBase {
     type(By.name("email"), contactData.getEmail_td());
     type(By.name("email2"), contactData.getEmail2_td());
     type(By.name("homepage"), contactData.getHomePage_td());
+
+    if (creation) {
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    } else {
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
+    }
   }
 
   public void initContactCreation() {
     click(By.linkText("add new"));
+  }
+
+  public void initContactModification() {
+    click(By.cssSelector("img[alt='Edit']"));
   }
 
   public void selectContact() {
@@ -41,4 +57,5 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//input[@value='Delete']"));
     wd.switchTo().alert().accept();
   }
+
 }

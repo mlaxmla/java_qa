@@ -31,7 +31,7 @@ public class ApplicationManager {
     } else if (browser.equals(BrowserType.IE)) {
       wd = new InternetExplorerDriver();
     }
-    wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     groupHelper = new GroupHelper(wd);
     gotoHomePage();
     navigationHelper = new NavigationHelper(wd);
@@ -39,9 +39,6 @@ public class ApplicationManager {
     contactHelper = new ContactHelper(wd);
     sessionHelper.login("admin", "secret");
   }
-
-
-//
 
   public void stop() {
     wd.quit();
@@ -65,4 +62,5 @@ public class ApplicationManager {
   public ContactHelper getContactHelper() {
     return contactHelper;
   }
+
 }
