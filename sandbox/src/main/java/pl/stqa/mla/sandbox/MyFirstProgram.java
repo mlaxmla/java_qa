@@ -22,7 +22,7 @@ public class MyFirstProgram {
 
     Point p1 = new Point(1,1);
     Point p2 = new Point(4,4);
-//    System.out.println("Odległość między punktami: P1(" + p1.x + "," + p1.y + ") i P2(" + p2.x + "," + p2.y + ") - wynosi: " + p1.distance(p2));
+    System.out.println("Odległość między punktami: P1(" + p1.x + "," + p1.y + ") i P2(" + p2.x + "," + p2.y + ") - wynosi: " + p1.distance_2(p2));
 
   }
 
@@ -30,13 +30,4 @@ public class MyFirstProgram {
     System.out.println("Hello, " + somebody + "!");
   }
 
-//  public double distance (Point p2) {
-//    double sqr_x = Math.pow((p2.x - this.x), 2);
-//    double sqr_y = Math.pow((p2.y - this.y), 2);
-//    return Math.sqrt(sqr_x + sqr_y);
-//  }
-
-  public static double distanceOld(Point p1, Point p2) {
-    return Math.sqrt((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y));
-  }
 }
