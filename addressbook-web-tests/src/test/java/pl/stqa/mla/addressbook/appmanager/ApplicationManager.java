@@ -52,9 +52,6 @@ public class ApplicationManager {
     wd.get("http://localhost/addressbook/");
   }
 
-  public void returnToHomePage() {
-    wd.findElement(By.linkText("home page")).click();
-  }
   public NavigationHelper getNavigationHelper() {
     return navigationHelper;
   }
