@@ -49,7 +49,7 @@ public class ApplicationManager {
   }
 
   public void gotoHomePage() {
-    wd.get("http://localhost/addressbook/");
+    wd.get("http://localhost:8080/addressbook/");
   }
 
   public NavigationHelper getNavigationHelper() {
