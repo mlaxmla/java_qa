@@ -1,6 +1,9 @@
 package pl.stqa.mla.addressbook.model;
 
+import java.util.Objects;
+
 public class ContactData {
+  private int id;
   private final String firstName_td;
   private final String middleName_td;
   private final String lastName_td;
@@ -15,7 +18,8 @@ public class ContactData {
   private final String homePage_td;
   private String group;
 
-  public ContactData(String firstName_td, String middleName_td, String lastName_td, String nickName_td, String title_td, String company_td, String address_td, String telHome_td, String telMobile_td, String email_td, String email2_td, String homePage_td, String group) {
+  public ContactData(int id, String firstName_td, String middleName_td, String lastName_td, String nickName_td, String title_td, String company_td, String address_td, String telHome_td, String telMobile_td, String email_td, String email2_td, String homePage_td, String group) {
+    this.id = id;
     this.firstName_td = firstName_td;
     this.middleName_td = middleName_td;
     this.lastName_td = lastName_td;
@@ -29,6 +33,31 @@ public class ContactData {
     this.email2_td = email2_td;
     this.homePage_td = homePage_td;
     this.group = group;
+  }
+
+  public ContactData(String firstName_td, String middleName_td, String lastName_td, String nickName_td, String title_td, String company_td, String address_td, String telHome_td, String telMobile_td, String email_td, String email2_td, String homePage_td, String group) {
+    this.id = 0;
+    this.firstName_td = firstName_td;
+    this.middleName_td = middleName_td;
+    this.lastName_td = lastName_td;
+    this.nickName_td = nickName_td;
+    this.title_td = title_td;
+    this.company_td = company_td;
+    this.address_td = address_td;
+    this.telHome_td = telHome_td;
+    this.telMobile_td = telMobile_td;
+    this.email_td = email_td;
+    this.email2_td = email2_td;
+    this.homePage_td = homePage_td;
+    this.group = group;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
   }
 
   public String getFirstName_td() {
@@ -81,5 +110,27 @@ public class ContactData {
 
   public String getGroup() {
     return group;
+  }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id='" + id + '\'' +
+            ", firstName_td='" + firstName_td + '\'' +
+            ", lastName_td='" + lastName_td + '\'' +
+            '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ContactData that = (ContactData) o;
+    return id == that.id && Objects.equals(firstName_td, that.firstName_td) && Objects.equals(lastName_td, that.lastName_td);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, firstName_td, lastName_td);
   }
 }
