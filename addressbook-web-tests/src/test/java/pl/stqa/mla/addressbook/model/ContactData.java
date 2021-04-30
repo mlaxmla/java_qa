@@ -3,61 +3,127 @@ package pl.stqa.mla.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-  private int id;
-  private final String firstName_td;
-  private final String middleName_td;
-  private final String lastName_td;
-  private final String nickName_td;
-  private final String title_td;
-  private final String company_td;
-  private final String address_td;
-  private final String telHome_td;
-  private final String telMobile_td;
-  private final String email_td;
-  private final String email2_td;
-  private final String homePage_td;
+  private int id = Integer.MAX_VALUE;
+  private String firstName_td;
+  private String middleName_td;
+  private String lastName_td;
+  private String nickName_td;
+  private String title_td;
+  private String company_td;
+  private String address_td;
+  private String telHome_td;
+  private String telMobile_td;
+  private String email_td;
+  private String email2_td;
+  private String homePage_td;
   private String group;
 
-  public ContactData(int id, String firstName_td, String middleName_td, String lastName_td, String nickName_td, String title_td, String company_td, String address_td, String telHome_td, String telMobile_td, String email_td, String email2_td, String homePage_td, String group) {
-    this.id = id;
-    this.firstName_td = firstName_td;
-    this.middleName_td = middleName_td;
-    this.lastName_td = lastName_td;
-    this.nickName_td = nickName_td;
-    this.title_td = title_td;
-    this.company_td = company_td;
-    this.address_td = address_td;
-    this.telHome_td = telHome_td;
-    this.telMobile_td = telMobile_td;
-    this.email_td = email_td;
-    this.email2_td = email2_td;
-    this.homePage_td = homePage_td;
-    this.group = group;
-  }
-
-  public ContactData(String firstName_td, String middleName_td, String lastName_td, String nickName_td, String title_td, String company_td, String address_td, String telHome_td, String telMobile_td, String email_td, String email2_td, String homePage_td, String group) {
-    this.id = Integer.MAX_VALUE;
-    this.firstName_td = firstName_td;
-    this.middleName_td = middleName_td;
-    this.lastName_td = lastName_td;
-    this.nickName_td = nickName_td;
-    this.title_td = title_td;
-    this.company_td = company_td;
-    this.address_td = address_td;
-    this.telHome_td = telHome_td;
-    this.telMobile_td = telMobile_td;
-    this.email_td = email_td;
-    this.email2_td = email2_td;
-    this.homePage_td = homePage_td;
-    this.group = group;
-  }
+//  public ContactData(int id, String firstName_td, String middleName_td, String lastName_td, String nickName_td, String title_td, String company_td, String address_td, String telHome_td, String telMobile_td, String email_td, String email2_td, String homePage_td, String group) {
+//    this.id = id;
+//    this.firstName_td = firstName_td;
+//    this.middleName_td = middleName_td;
+//    this.lastName_td = lastName_td;
+//    this.nickName_td = nickName_td;
+//    this.title_td = title_td;
+//    this.company_td = company_td;
+//    this.address_td = address_td;
+//    this.telHome_td = telHome_td;
+//    this.telMobile_td = telMobile_td;
+//    this.email_td = email_td;
+//    this.email2_td = email2_td;
+//    this.homePage_td = homePage_td;
+//    this.group = group;
+//  }
+//
+//  public ContactData(String firstName_td, String middleName_td, String lastName_td, String nickName_td, String title_td, String company_td, String address_td, String telHome_td, String telMobile_td, String email_td, String email2_td, String homePage_td, String group) {
+//    this.id = Integer.MAX_VALUE;
+//    this.firstName_td = firstName_td;
+//    this.middleName_td = middleName_td;
+//    this.lastName_td = lastName_td;
+//    this.nickName_td = nickName_td;
+//    this.title_td = title_td;
+//    this.company_td = company_td;
+//    this.address_td = address_td;
+//    this.telHome_td = telHome_td;
+//    this.telMobile_td = telMobile_td;
+//    this.email_td = email_td;
+//    this.email2_td = email2_td;
+//    this.homePage_td = homePage_td;
+//    this.group = group;
+//  }
 
   public int getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public ContactData withId(int id) {
     this.id = id;
+    return this;
+  }
+
+  public ContactData withFirstName_td(String firstName_td) {
+    this.firstName_td = firstName_td;
+    return this;
+  }
+
+  public ContactData withMiddleName_td(String middleName_td) {
+    this.middleName_td = middleName_td;
+    return this;
+  }
+
+  public ContactData withLastName_td(String lastName_td) {
+    this.lastName_td = lastName_td;
+    return this;
+  }
+
+  public ContactData withNickName_td(String nickName_td) {
+    this.nickName_td = nickName_td;
+    return this;
+  }
+
+  public ContactData withTitle_td(String title_td) {
+    this.title_td = title_td;
+    return this;
+  }
+
+  public ContactData withCompany_td(String company_td) {
+    this.company_td = company_td;
+    return this;
+  }
+
+  public ContactData withAddress_td(String address_td) {
+    this.address_td = address_td;
+    return this;
+  }
+
+  public ContactData withTelHome_td(String telHome_td) {
+    this.telHome_td = telHome_td;
+    return this;
+  }
+
+  public ContactData withTelMobile_td(String telMobile_td) {
+    this.telMobile_td = telMobile_td;
+    return this;
+  }
+
+  public ContactData withEmail_td(String email_td) {
+    this.email_td = email_td;
+    return this;
+  }
+
+  public ContactData withEmail2_td(String email2_td) {
+    this.email2_td = email2_td;
+    return this;
+  }
+
+  public ContactData withHomePage_td(String homePage_td) {
+    this.homePage_td = homePage_td;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
+    this.group = group;
+    return this;
   }
 
   public String getFirstName_td() {
@@ -126,12 +192,11 @@ public class ContactData {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ContactData that = (ContactData) o;
-    return Objects.equals(firstName_td, that.firstName_td) && Objects.equals(lastName_td, that.lastName_td);
+    return id == that.id && Objects.equals(firstName_td, that.firstName_td) && Objects.equals(lastName_td, that.lastName_td);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName_td, lastName_td);
+    return Objects.hash(id, firstName_td, lastName_td);
   }
-
 }
