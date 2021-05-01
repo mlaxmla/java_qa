@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import pl.stqa.mla.addressbook.model.ContactData;
+import pl.stqa.mla.addressbook.appmanager.ApplicationManager;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -51,20 +52,37 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
-  public void modify(int index) {
-    wd.findElements(By.cssSelector("img[alt='Edit']")).get(index).click();
+  public void modify(ContactData contact) {
+    editContactById(contact.getId());
+//    wd.findElements(By.cssSelector("img[alt='Edit']")).get(index).click();
 //    click(By.cssSelector("img[alt='Edit']"));
+    fillForm(contact, false);
+    submitModification();
+    gotoHomePage();
   }
 
   public void delete(int index) {
     selectContact(index);
     deleteSelectedContacts();
-    returnToHomePage(); //    app.gotoHomePage();
+    gotoHomePage();
+  }
+
+  public void delete(ContactData contact) {
+    selectContactById(contact.getId());
+    deleteSelectedContacts();
+    gotoHomePage();
   }
 
   public void selectContact(int index) {
     wd.findElements(By.name("selected[]")).get(index).click();
-//    click(By.name("selected[]"));
+  }
+
+  public void selectContactById(int id) {
+    wd.findElement(By.cssSelector("input[id='" + id + "']")).click();
+  }
+
+  public void editContactById(int id) {
+    wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
   }
 
   public void deleteSelectedContacts() {
@@ -74,7 +92,7 @@ public class ContactHelper extends HelperBase {
 
   public void create(ContactData contact, boolean creation) {
     initContactCreation();
-    fillForm(contact, true);
+    fillForm(contact, creation); // true
     submitContactCreation();
     returnToHomePage();
   }
@@ -120,4 +138,9 @@ public class ContactHelper extends HelperBase {
     }
     return contacts;
   }
+
+  public void gotoHomePage() {
+    wd.get("http://localhost:8080/addressbook/");
+  }
+
 }

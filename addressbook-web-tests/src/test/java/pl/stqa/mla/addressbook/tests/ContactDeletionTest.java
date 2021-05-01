@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pl.stqa.mla.addressbook.model.ContactData;
 import pl.stqa.mla.addressbook.model.GroupData;
 
-import java.util.List;
+import java.util.Set;
 
 public class ContactDeletionTest extends TestBase {
 
@@ -19,7 +19,7 @@ public class ContactDeletionTest extends TestBase {
         app.group().create(new GroupData().withName("test1"));
       }
       app.gotoHomePage();
-      app.contact().create(new ContactData().withFirstName_td("FirstName_TestData_2delete").withLastName_td("LastName_TestData"), true);
+      app.contact().create(new ContactData().withFirstName_td("FirstName_TestData_2delete").withLastName_td("LastName_TestData").withGroup("test1"), true);
               // "MiddleNameTestData", "LastName_TestData", "Nickname_TestData", "Title_TestData", "Company_TestData", "Address_TestData", "TelHome_testData", "TelMobile_testData", "email_testData", "email2_testData", "Homepage_testData", "test1"), true);
     }
   }
@@ -27,13 +27,13 @@ public class ContactDeletionTest extends TestBase {
   @Test
   public void testContactDeletion() {
     app.gotoHomePage();
-    List<ContactData> before = app.contact().list();
-    int index = before.size() - 1;
-    app.contact().delete(index);
-    List<ContactData> after = app.contact().list();
+    Set<ContactData> before = app.contact().all();
+    ContactData deletedContact = before.iterator().next();
+    app.contact().delete(deletedContact);
+    Set<ContactData> after = app.contact().all();
     Assert.assertEquals(after.size(), before.size() - 1);
 
-    before.remove(index);
+    before.remove(deletedContact);
     Assert.assertEquals(before, after);
   }
 

@@ -19,7 +19,7 @@ public class GroupDeletionTest extends TestBase {
     }
   }
 
-  @Test(enabled = false)
+  @Test
   public void testGroupDeletion() {
     app.goTo().groupPage();
     Groups before = app.group().all();
