@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import pl.stqa.mla.addressbook.model.ContactData;
 import pl.stqa.mla.addressbook.appmanager.ApplicationManager;
+import pl.stqa.mla.addressbook.model.Contacts;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -124,8 +125,8 @@ public class ContactHelper extends HelperBase {
     return contacts;
   }
 
-  public Set<ContactData> all() {
-    Set<ContactData> contacts = new HashSet<ContactData>();
+  public Contacts all() {
+    Contacts contacts = new Contacts();
     List<WebElement> rows_table = wd.findElements(By.xpath("//*[@id='maintable']//tr[@name='entry']")); //    id("maintable"));
     int rows_count = rows_table.size();
     for (int row = 0; row < rows_count; row++) {
