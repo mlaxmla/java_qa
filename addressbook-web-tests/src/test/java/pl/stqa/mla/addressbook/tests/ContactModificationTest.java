@@ -46,7 +46,7 @@ public class ContactModificationTest extends TestBase {
 //    before.remove(modifiedContact);
 //    before.add(contact);
 //    Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
-    assertEquals(before, after);
+//    assertEquals(before, after);
     assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
   }
 
