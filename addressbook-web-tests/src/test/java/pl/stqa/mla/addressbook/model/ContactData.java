@@ -16,10 +16,31 @@ public class ContactData {
   private String telWork_td;
   private String email_td;
   private String email2_td;
+  private String email3_td;
   private String homePage_td;
   private String group;
+  private String allEmails;
+  private String allPhones;
 
-//  public ContactData(int id, String firstName_td, String middleName_td, String lastName_td, String nickName_td, String title_td, String company_td, String address_td, String telHome_td, String telMobile_td, String email_td, String email2_td, String homePage_td, String group) {
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
+
+  public String getAllEmails() {
+    return allEmails;
+  }
+
+  public ContactData withAllEmails(String allEmails) {
+    this.allEmails = allEmails;
+    return this;
+  }
+
+  //  public ContactData(int id, String firstName_td, String middleName_td, String lastName_td, String nickName_td, String title_td, String company_td, String address_td, String telHome_td, String telMobile_td, String email_td, String email2_td, String homePage_td, String group) {
 //    this.id = id;
 //    this.firstName_td = firstName_td;
 //    this.middleName_td = middleName_td;
@@ -122,6 +143,11 @@ public class ContactData {
     return this;
   }
 
+  public ContactData withEmail3_td(String email3_td) {
+    this.email3_td = email3_td;
+    return this;
+  }
+
   public ContactData withHomePage_td(String homePage_td) {
     this.homePage_td = homePage_td;
     return this;
@@ -178,6 +204,10 @@ public class ContactData {
 
   public String getEmail2_td() {
     return email2_td;
+  }
+
+  public String getEmail3_td() {
+    return email3_td;
   }
 
   public String getHomePage_td() {
