@@ -13,6 +13,7 @@ public class ContactData {
   private String address_td;
   private String telHome_td;
   private String telMobile_td;
+  private String telWork_td;
   private String email_td;
   private String email2_td;
   private String homePage_td;
@@ -106,6 +107,11 @@ public class ContactData {
     return this;
   }
 
+  public ContactData withTelWork_td(String telWork_td) {
+    this.telWork_td = telWork_td;
+    return this;
+  }
+
   public ContactData withEmail_td(String email_td) {
     this.email_td = email_td;
     return this;
@@ -160,6 +166,10 @@ public class ContactData {
 
   public String getTelMobile_td() {
     return telMobile_td;
+  }
+
+  public String getTelWork_td() {
+    return telWork_td;
   }
 
   public String getEmail_td() {
