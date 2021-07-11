@@ -16,6 +16,14 @@ import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
+  // a change of the helper constructor to accept a link to the manager (instead of a link to a browser driver)
+  ApplicationManager manager;
+
+  public ContactHelper(ApplicationManager manager) {
+    super(manager.wd);
+    this.manager = manager;
+  }
+
   public ContactHelper(WebDriver wd) {
     super(wd);
   }

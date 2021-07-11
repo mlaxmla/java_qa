@@ -34,9 +34,12 @@ public class ApplicationManager {
     wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     groupHelper = new GroupHelper(wd);
     gotoHomePage();
+    wd.manage().window().maximize();
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
-    contactHelper = new ContactHelper(wd);
+    // contactHelper = new ContactHelper(wd);
+    contactHelper = new ContactHelper(this); // manager passes itself to the helper, to use constructor from ContactHelper
+
     sessionHelper.login("admin", "secret");
   }
 
