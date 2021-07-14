@@ -6,13 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import pl.stqa.mla.addressbook.model.ContactData;
-import pl.stqa.mla.addressbook.appmanager.ApplicationManager;
 import pl.stqa.mla.addressbook.model.Contacts;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -67,6 +64,7 @@ public class ContactHelper extends HelperBase {
 //    click(By.cssSelector("img[alt='Edit']"));
     fillForm(contact, false);
     submitModification();
+    contactCache = null;
     gotoHomePage();
   }
 
@@ -79,6 +77,7 @@ public class ContactHelper extends HelperBase {
   public void delete(ContactData contact) {
     selectContactById(contact.getId());
     deleteSelectedContacts();
+    contactCache = null;
     gotoHomePage();
   }
 
@@ -103,6 +102,7 @@ public class ContactHelper extends HelperBase {
     initContactCreation();
     fillForm(contact, creation); // true
     submitContactCreation();
+    contactCache = null;
     returnToHomePage();
   }
 
@@ -134,7 +134,12 @@ public class ContactHelper extends HelperBase {
   }
 
   public Contacts all() {
-    Contacts contacts = new Contacts();
+    if (contactCache != null) {
+      return new Contacts(contactCache);
+    }
+
+    contactCache = new Contacts();
+//    Contacts contacts = new Contacts();
     List<WebElement> rows_table = wd.findElements(By.xpath("//*[@id='maintable']//tr[@name='entry']")); //    id("maintable"));
     int rows_count = rows_table.size();
     for (int row = 0; row < rows_count; row++) {
@@ -146,12 +151,14 @@ public class ContactHelper extends HelperBase {
       String[] emails = Columns_row.get(4).getText().split("\n");
       String allEmails = Columns_row.get(4).getText();
       int id = Integer.parseInt(Columns_row.get(0).findElement(By.tagName("input")).getAttribute("value"));
-      contacts.add(new ContactData().withId(id).withFirstName_td(firstname).withLastName_td(lastname)
+      contactCache.add(new ContactData().withId(id).withFirstName_td(firstname).withLastName_td(lastname)
               .withAllPhones(allPhones).withAllEmails(allEmails));
 //              .withTelHome_td(phones[0]).withTelMobile_td(phones[1]).withTelWork_td(phones[2]));
       // , null, lastname, null, null, null, null, null, null, null, null, null, null);
     }
-    return contacts;
+    return new Contacts(contactCache);
+//    return contacts;
+
   }
 
   public void gotoHomePage() {
@@ -175,6 +182,8 @@ public class ContactHelper extends HelperBase {
             .withTelHome_td(home).withTelMobile_td(mobile).withTelWork_td(work)
             .withEmail_td(email).withEmail2_td(email2).withEmail3_td(email3);
   }
+
+  private Contacts contactCache = null;
 
   private void initContactModificationById(int id) {
     WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value='%s']", id)));
