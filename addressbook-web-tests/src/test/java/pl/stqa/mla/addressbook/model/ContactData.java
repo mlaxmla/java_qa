@@ -18,9 +18,11 @@ public class ContactData {
   private String email2_td;
   private String email3_td;
   private String homePage_td;
+  private String detailText;
   private String group;
   private String allEmails;
   private String allPhones;
+
 
   public String getAllPhones() {
     return allPhones;
@@ -216,6 +218,15 @@ public class ContactData {
 
   public String getGroup() {
     return group;
+  }
+
+  public String getDetailText() {
+    return detailText;
+  }
+
+  public ContactData withDetailText(String detailText) {
+    this.detailText = detailText;
+    return  this;
   }
 
   @Override
