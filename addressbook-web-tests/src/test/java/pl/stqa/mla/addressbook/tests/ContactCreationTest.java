@@ -4,6 +4,8 @@ import org.testng.annotations.Test;
 import pl.stqa.mla.addressbook.model.ContactData;
 import pl.stqa.mla.addressbook.model.Contacts;
 
+import java.io.File;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -13,7 +15,10 @@ public class ContactCreationTest extends TestBase {
   public void testContactCreation() {
     app.gotoHomePage();
     Contacts before = app.contact().all();
-    ContactData contact = new ContactData().withFirstName_td("FirstName_TestData999").withMiddleName_td("MiddleNameTestData").withLastName_td("LastName_TestData").withNickName_td("Nickname_TestData").withTitle_td("Title_TestData").withCompany_td("Company_TestData").withAddress_td("Address_TestData").withTelHome_td("TelHome_testData").withTelMobile_td("TelMobile_testData").withEmail_td("email_testData").withEmail2_td("email2_testData").withEmail3_td("email3_testData").withHomePage_td("Homepage_testData").withGroup("test1");
+    File photo = new File("src/test/resources/photo.png");
+    ContactData contact = new ContactData()
+            .withFirstName_td("FirstName_TestData999").withMiddleName_td("MiddleNameTestData").withLastName_td("LastName_TestData").withNickName_td("Nickname_TestData").withTitle_td("Title_TestData").withCompany_td("Company_TestData").withAddress_td("Address_TestData").withTelHome_td("TelHome_testData").withTelMobile_td("TelMobile_testData").withEmail_td("email_testData").withEmail2_td("email2_testData").withEmail3_td("email3_testData").withHomePage_td("Homepage_testData")
+            .withPhoto(photo).withGroup("test1");
     app.contact().create(contact, true);
     app.gotoHomePage();
     Contacts after = app.contact().all();
@@ -27,5 +32,16 @@ public class ContactCreationTest extends TestBase {
     assertThat(after, equalTo(
             before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
   }
+
+  @Test  (enabled = false)
+  public void testCurrentDir() {
+    File currentDir = new File(".");
+    System.out.println(currentDir.getAbsolutePath());
+    File photo = new File("src/test/resources/photo.png");
+    System.out.println(photo.getAbsolutePath());
+    System.out.println(photo.exists());
+    System.out.println(photo.isDirectory());
+  }
+
 
 }
