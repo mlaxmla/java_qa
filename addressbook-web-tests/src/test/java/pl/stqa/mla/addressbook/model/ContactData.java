@@ -2,22 +2,38 @@ package pl.stqa.mla.addressbook.model;
 
 import java.io.File;
 import java.util.Objects;
+import com.google.gson.annotations.Expose;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 public class ContactData {
+  @XStreamOmitField
   private int id = Integer.MAX_VALUE;
+  @Expose
   private String firstName_td;
+  @Expose
   private String middleName_td;
+  @Expose
   private String lastName_td;
+  @Expose
   private String nickName_td;
+  @Expose
   private String title_td;
+  @Expose
   private String company_td;
+  @Expose
   private String address_td;
+  @Expose
   private String telHome_td;
+  @Expose
   private String telMobile_td;
   private String telWork_td;
+  @Expose
   private String email_td;
+  @Expose
   private String email2_td;
   private String email3_td;
+  @Expose
   private String homePage_td;
   private String detailText;
   private String group;
