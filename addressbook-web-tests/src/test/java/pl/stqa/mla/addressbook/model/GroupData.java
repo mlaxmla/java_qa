@@ -47,7 +47,9 @@ public class GroupData {
   public String toString() {
     return "GroupData{" +
             "id='" + id + '\'' +
-            ", name='" + name + '\'' +
+            ", n='" + name + '\'' +
+            ", h='" + header + '\'' +
+            ", f='" + footer + '\'' +
             '}';
   }
 
