@@ -1,5 +1,5 @@
 <list>
-  <pl.stqa.mla.addressbook.model.ContactData>
+  <contact>
     <firstName__td>FirstName_TDGen0</firstName__td>
     <middleName__td>MiddleName_TDGen0</middleName__td>
     <lastName__td>LastName_TDGen0</lastName__td>
@@ -12,8 +12,9 @@
     <email__td>email_TDGen0@abc.de</email__td>
     <email2__td>email2_TDGen0@abc.de</email2__td>
     <homePage__td>www.Homepage_TDGen0.de</homePage__td>
-  </pl.stqa.mla.addressbook.model.ContactData>
-  <pl.stqa.mla.addressbook.model.ContactData>
+    <group>new_group</group>
+  </contact>
+  <contact>
     <firstName__td>FirstName_TDGen1</firstName__td>
     <middleName__td>MiddleName_TDGen1</middleName__td>
     <lastName__td>LastName_TDGen1</lastName__td>
@@ -26,8 +27,9 @@
     <email__td>email_TDGen1@abc.de</email__td>
     <email2__td>email2_TDGen1@abc.de</email2__td>
     <homePage__td>www.Homepage_TDGen1.de</homePage__td>
-  </pl.stqa.mla.addressbook.model.ContactData>
-  <pl.stqa.mla.addressbook.model.ContactData>
+    <group>new_group</group>
+  </contact>
+  <contact>
     <firstName__td>FirstName_TDGen2</firstName__td>
     <middleName__td>MiddleName_TDGen2</middleName__td>
     <lastName__td>LastName_TDGen2</lastName__td>
@@ -40,5 +42,6 @@
     <email__td>email_TDGen2@abc.de</email__td>
     <email2__td>email2_TDGen2@abc.de</email2__td>
     <homePage__td>www.Homepage_TDGen2.de</homePage__td>
-  </pl.stqa.mla.addressbook.model.ContactData>
+    <group>new_group</group>
+  </contact>
 </list>

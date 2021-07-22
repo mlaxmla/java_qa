@@ -6,6 +6,7 @@ import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
+@XStreamAlias("contact")
 public class ContactData {
   @XStreamOmitField
   private int id = Integer.MAX_VALUE;
@@ -36,6 +37,7 @@ public class ContactData {
   @Expose
   private String homePage_td;
   private String detailText;
+  @Expose
   private String group;
   private String allEmails;
   private String allPhones;
