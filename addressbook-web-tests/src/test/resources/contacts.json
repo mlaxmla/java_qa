@@ -11,7 +11,8 @@
     "telMobile_td": "TelMobile_TDGen0",
     "email_td": "email_TDGen0@abc.de",
     "email2_td": "email2_TDGen0@abc.de",
-    "homePage_td": "www.Homepage_TDGen0.de"
+    "homePage_td": "www.Homepage_TDGen0.de",
+    "group": "new_group"
   },
   {
     "firstName_td": "FirstName_TDGen1",
@@ -25,7 +26,8 @@
     "telMobile_td": "TelMobile_TDGen1",
     "email_td": "email_TDGen1@abc.de",
     "email2_td": "email2_TDGen1@abc.de",
-    "homePage_td": "www.Homepage_TDGen1.de"
+    "homePage_td": "www.Homepage_TDGen1.de",
+    "group": "new_group"
   },
   {
     "firstName_td": "FirstName_TDGen2",
@@ -39,6 +41,7 @@
     "telMobile_td": "TelMobile_TDGen2",
     "email_td": "email_TDGen2@abc.de",
     "email2_td": "email2_TDGen2@abc.de",
-    "homePage_td": "www.Homepage_TDGen2.de"
+    "homePage_td": "www.Homepage_TDGen2.de",
+    "group": "new_group"
   }
 ]
