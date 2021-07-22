@@ -53,7 +53,7 @@ public class ContactDataGenerator {
   }
 
   private void saveAsJson(List<ContactData> contacts, File file) throws IOException {
-    //    Gson gson = new Gson(); // simple usage without special atributes
+    //    Gson gson = new Gson(); // simple usage without special attributes
     Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
     String json = gson.toJson(contacts);
     try (Writer writer = new FileWriter(file)) {
@@ -77,8 +77,8 @@ public class ContactDataGenerator {
     System.out.println(new File(".").getAbsolutePath());
     try (Writer writer = new FileWriter(file)) {
       for (ContactData contact : contacts) {
-        writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n", contact.getFirstName_td(), contact.getMiddleName_td(), contact.getLastName_td(), contact.getNickName_td(), contact.getTitle_td(), contact.getCompany_td(), contact.getAddress_td()
-                , contact.getTelHome_td(), contact.getTelMobile_td(), contact.getEmail_td(), contact.getEmail2_td(), contact.getHomePage_td()
+        writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n", contact.getFirstName_td(), contact.getMiddleName_td(), contact.getLastName_td(), contact.getNickName_td(), contact.getTitle_td(), contact.getCompany_td(), contact.getAddress_td()
+                , contact.getTelHome_td(), contact.getTelMobile_td(), contact.getEmail_td(), contact.getEmail2_td(), contact.getHomePage_td(), contact.getGroup()
         ));
       }
     }
@@ -100,6 +100,7 @@ public class ContactDataGenerator {
               .withEmail_td(String.format("email_TDGen%s@abc.de", i))
               .withEmail2_td(String.format("email2_TDGen%s@abc.de", i))
               .withHomePage_td(String.format("www.Homepage_TDGen%s.de", i))
+              .withGroup("new_group")
               );
     }
     return contacts;
